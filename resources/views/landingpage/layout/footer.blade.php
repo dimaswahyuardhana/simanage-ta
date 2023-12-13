@@ -20,11 +20,24 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Administrasi Usaha</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Absen</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Data Absen</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Riwayat Gaji</a></li>
+                @if (auth()->check())
+                @php $admin = auth()->user()->id_role @endphp
+                @if ($admin == 1)
+                    <script>
+                        window.location.href = '{{ url('/admin') }}';
+                    </script>
+                @endif
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/absent') }}">Absen</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('data_absensi') }}">Data Absen</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/riwayat_gaji') }}">Riwayat Gaji</a></li>
+                @else
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/admin') }}">Administrasi Usaha</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/absent') }}">Absen</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('data_absensi') }}">Data Absen</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/riwayat_gaji') }}">Riwayat Gaji</a></li>
+                @endif
             </ul>
           </div>
 

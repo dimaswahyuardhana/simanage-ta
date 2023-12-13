@@ -21,7 +21,6 @@
                 <li><a class="nav-link scrollto" href="{{ url('/about') }}">Tentang</a></li>
                 <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                    <li><a href="#">Adminitrasi Usaha</a></li>
                     <li><a href="{{ url('/absent') }}">Absen</a></li>
                     <li><a href="{{ url('/data_absensi') }}">Data Absen</a></li>
                     <li><a href="{{ url('/riwayat_gaji') }}">Riwayat Gaji</a></li>
@@ -43,6 +42,15 @@
                 @else
                 <li><a class="nav-link scrollto" href="{{ url('/') }}">Home</a></li>
                 <li><a class="nav-link scrollto" href="{{ url('/about') }}">Tentang</a></li>
+                <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                    <li><a href="{{ url('/admin') }}">Administrasi Usaha</a></li>
+                    <li><a href="{{ url('/absent') }}">Absen</a></li>
+                    <li><a href="{{ url('/data_absensi') }}">Data Absen</a></li>
+                    <li><a href="{{ url('/riwayat_gaji') }}">Riwayat Gaji</a></li>
+                    </ul>
+                </li>
+
                 <a class="btn-getstarted scrollto" href="{{ url('/login') }}" role="a">Sign In</a>
 
                 @endif

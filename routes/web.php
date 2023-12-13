@@ -83,7 +83,7 @@ Route::middleware(['loginAs'])->group(function () {
     // add gaji karyawan
     Route::get('/gaji_karyawan/add', [GajiKaryawanController::class, 'create']);
     Route::post('/gaji_karyawan', [GajiKaryawanController::class, 'store']);
-    Route::get('/cetak-slip/{id}', [RiwayatGajiController::class, 'cetakSlip']);
+    Route::get('/cetak-slip-gaji/{id}', [GajiKaryawanController::class, 'cetakSlip']);
 
     // keuangan
     Route::get('/keuangan', [FinanceController::class, 'index']);

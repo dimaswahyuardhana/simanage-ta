@@ -211,4 +211,15 @@ class GajiKaryawanController extends Controller
     {
         //
     }
+
+    public function cetakSlip($id)
+    {
+        $dataGaji = GajiKaryawan::with('user')
+            ->where('id_gaji_karyawan', $id)
+            ->first();
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML(view('landingpage.section.slip-gaji', ['dataGaji' => $dataGaji]));
+        $namafile = 'slip-gaji-' . $dataGaji->nama_karyawan . '.pdf';
+        $mpdf->Output($namafile, 'D');
+    }
 }

@@ -15,38 +15,70 @@
       <div class="container">
 
         <div class="row gy-4">
+            @if (auth()->check())
+            @php $admin = auth()->user()->id_role @endphp
+            @if ($admin == 1)
+                <script>
+                    window.location.href = '{{ url('/admin') }}';
+                </script>
+            @endif
+            <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
+                <div class="service-item position-relative">
+                  <div class="icon"><i class="bi bi-book"></i></div>
+                  <h4><a href="{{ url('/absent') }}" class="stretched-link">Absen</a></h4>
+                  <p>Lakukan Absen Dengan Mudah</p>
+                </div>
+              </div><!-- End Service Item -->
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-clipboard-data-fill"></i></div>
-              <h4><a href="" class="stretched-link">Administrasi Usaha</a></h4>
-              <p>Atur administrasi usaha</p>
-            </div>
-          </div><!-- End Service Item -->
+              <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
+                <div class="service-item position-relative">
+                  <div class="icon"><i class="bi bi-book-half"></i></div>
+                  <h4><a href="{{ url('/data_absensi') }}" class="stretched-link">Riwayat Absensi</a></h4>
+                  <p>Cek Riwayat Absen</p>
+                </div>
+              </div><!-- End Service Item -->
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-book"></i></div>
-              <h4><a href="{{ url('/absent') }}" class="stretched-link">Absen</a></h4>
-              <p>Lakukan Absen Dengan Mudah</p>
-            </div>
-          </div><!-- End Service Item -->
+              <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
+                <div class="service-item position-relative">
+                  <div class="icon"><i class="bi bi-cash-coin"></i></div>
+                  <h4><a href="{{ url('/riwayat_gaji') }}" class="stretched-link">Riwayat Gaji</a></h4>
+                  <p>Control Riwayat Gaji</p>
+                </div>
+              </div>
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-book-half"></i></div>
-              <h4><a href="{{ url('/data_absensi') }}" class="stretched-link">Riwayat Absensi</a></h4>
-              <p>Cek Riwayat Absen</p>
-            </div>
-          </div><!-- End Service Item -->
+            @else
+            <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+                <div class="service-item position-relative">
+                  <div class="icon"><i class="bi bi-clipboard-data-fill"></i></div>
+                  <h4><a href="{{ url('/admin') }}" class="stretched-link">Administrasi Usaha</a></h4>
+                  <p>Atur administrasi usaha</p>
+                </div>
+              </div><!-- End Service Item -->
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-cash-coin"></i></div>
-              <h4><a href="{{ url('/riwayat_gaji') }}" class="stretched-link">Riwayat Gaji</a></h4>
-              <p>Control Riwayat Gaji</p>
-            </div>
-          </div><!-- End Service Item -->
+              <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
+                <div class="service-item position-relative">
+                  <div class="icon"><i class="bi bi-book"></i></div>
+                  <h4><a href="{{ url('/absent') }}" class="stretched-link">Absen</a></h4>
+                  <p>Lakukan Absen Dengan Mudah</p>
+                </div>
+              </div><!-- End Service Item -->
+
+              <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
+                <div class="service-item position-relative">
+                  <div class="icon"><i class="bi bi-book-half"></i></div>
+                  <h4><a href="{{ url('/data_absensi') }}" class="stretched-link">Riwayat Absensi</a></h4>
+                  <p>Cek Riwayat Absen</p>
+                </div>
+              </div><!-- End Service Item -->
+
+              <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
+                <div class="service-item position-relative">
+                  <div class="icon"><i class="bi bi-cash-coin"></i></div>
+                  <h4><a href="{{ url('/riwayat_gaji') }}" class="stretched-link">Riwayat Gaji</a></h4>
+                  <p>Control Riwayat Gaji</p>
+                </div>
+              </div><!-- End Service Item -->
+            @endif
 
         </div>
 

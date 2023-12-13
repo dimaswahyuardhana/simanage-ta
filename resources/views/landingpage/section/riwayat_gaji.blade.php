@@ -26,8 +26,15 @@
                                 <td>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->isoFormat('LLL') }}</td>
                                 <td>{{ $formatted_dataGaji[$key] }}</td>
                                 <td>
-                                    <a href="{{ url('/cetak-slip/' . $item->id_gaji_karyawan) }}" target="_blank"
-                                        class="btn btn-info"><b>Lihat Slip Gaji</b></a>
+                                    @if ($item->bukti_transfer_gaji != null)
+                                        <a href="/storage/{{ $item->bukti_transfer_gaji }}" target="_blank"
+                                            class="btn btn-xs btn-info"><b>Lihat Slip Gaji</b></a>
+                                        @endif
+                                        <a href="{{ url('/cetak-slip/' . $item->id_gaji_karyawan) }}" target="_blank">
+                                            <button class="btn btn-danger">
+                                                <i class="bi bi-file-earmark-pdf">CETAK SLIP GAJI PDF</i>
+                                            </button>
+                                        </a>
                                 </td>
                             </tr>
                         @endforeach

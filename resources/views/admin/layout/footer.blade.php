@@ -8,9 +8,9 @@
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="https://twitter.com/dimasbjr10"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.instagram.com/dimas.bjr/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/dimas-ardhana-45253b245/"><i class="bi bi-linkedin"></i></a>
         </div>
     </footer><!-- End Footer -->
 
