@@ -18,12 +18,15 @@ class LaporanExport implements FromCollection, WithHeadings, WithMapping
     use Exportable;
     public function collection()
     {
+        $no = 1;
+        $user = Auth::user()->id;
         return FinancialStatement::select(
             'total_pemasukan',
             'total_pengeluaran',
             'total_hutang',
             'laba',
             'tanggal')
+            ->where('id_user', $user)
             ->get();
 
     }

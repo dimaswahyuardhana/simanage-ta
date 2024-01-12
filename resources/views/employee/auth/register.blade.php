@@ -83,21 +83,33 @@
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" required>
+                      <div class="d-flex justify-content-end">
+                        <div toggle="#password"  class="field-icon toggle-password" style="margin-top: -2rem; margin-right: 5px">
+                            <i class="bi bi-eye" id="toggle-password"></i>
+                            <i class="bi bi-eye-slash d-none" id="mata-tutup"></i>
+                        </div>
+                      </div>
                       @error('password')
                             <div id="passwordHelp" class="form-text">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="col-12">
-                        <label for="yourUsername" class="form-label">Company Code</label>
-                        <input type="password" name="id_company"  class="form-control @error('name') is-invalid @enderror" id="id_company" required>
-                        @error('id_company')
-                            <div id="companyNameHelp" class="form-text">{{ $message }}</div>
-                        @enderror
-                    </div>
+                      <label for="yourUsername" class="form-label">Company Code</label>
+                      <input type="password" name="id_company" class="form-control @error('name') is-invalid @enderror" id="id_company" required>
+                      <div class="d-flex justify-content-end">
+                          <div class="field-icon toggle-code" style="margin-top: -2rem; margin-right: 5px">
+                              <i class="bi bi-eye" id="toggle-code" onclick="toggleCodeVisibility()"></i>
+                              <i class="bi bi-eye-slash d-none" id="code-tutup" onclick="toggleCodeVisibility()"></i>
+                          </div>
+                      </div>
+                      @error('id_company')
+                          <div id="companyNameHelp" class="form-text">{{ $message }}</div>
+                      @enderror
+                  </div>
 
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                      <button class="btn btn-primary w-100 mt-3" type="submit">Create Account</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a href="{{ url('/login') }}">Log in</a></p>
@@ -132,6 +144,44 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('template/assets/js/main.js') }}"></script>
 
+    <script>
+        const togglePassword = document.querySelector(".toggle-password");
+        const mataTutup = document.querySelector("#mata-tutup");
+
+        togglePassword.addEventListener("click", function (e) {
+            var input = document.querySelector("#password");
+
+            if (input.type === "password") {
+                input.type = "text";
+                mataTutup.classList.remove("d-none");
+                mataTutup.classList.add("d-block");
+                togglePassword.querySelector("#toggle-password").classList.remove("bi-eye");
+                // togglePassword.querySelector("#toggle-password").classList.add("bi-eye-slash");
+            } else {
+                input.type = "password";
+                mataTutup.classList.remove("d-block");
+                mataTutup.classList.add("d-none");
+                togglePassword.querySelector("#toggle-password").classList.remove("bi-eye-slash");
+                togglePassword.querySelector("#toggle-password").classList.add("bi-eye");
+            }
+        });
+
+        function toggleCodeVisibility() {
+        var codeInput = document.getElementById('id_company');
+        var eyeIcon = document.getElementById('toggle-code');
+        var eyeSlashIcon = document.getElementById('code-tutup');
+
+        if (codeInput.type === 'password') {
+            codeInput.type = 'text';
+            eyeIcon.classList.add('d-none');
+            eyeSlashIcon.classList.remove('d-none');
+        } else {
+            codeInput.type = 'password';
+            eyeIcon.classList.remove('d-none');
+            eyeSlashIcon.classList.add('d-none');
+        }
+    }
+    </script>
 </body>
 
 </html>

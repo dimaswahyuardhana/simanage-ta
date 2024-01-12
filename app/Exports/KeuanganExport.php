@@ -18,10 +18,13 @@ class KeuanganExport implements FromCollection, WithHeadings, WithMapping
     use Exportable;
     public function collection()
     {
+        $no = 1;
+        $user = Auth::user()->id;
         return Finance::select(
             'keterangan',
             'jumlah_uang',
             'created_at')
+            ->where('id_user', $user)
             ->get();
     }
 

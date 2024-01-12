@@ -15,6 +15,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xrhyvPoiRqjZlnDSGc1C5J/uQDId6ZIcjPBE6M6jW9vSlazZzZxeOJl3/9CJ8bQNGTpeviF9rkL7LQN5tFwN2g==" crossorigin="anonymous" />
+
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('template/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -76,7 +78,12 @@
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" required>
-
+                      <div class="d-flex justify-content-end">
+                        <div toggle="#password"  class="field-icon toggle-password" style="margin-top: -2rem; margin-right: 5px">
+                            <i class="bi bi-eye" id="toggle-password"></i>
+                            <i class="bi bi-eye-slash d-none" id="mata-tutup"></i>
+                        </div>
+                      </div>
                       @error('password')
                         <div id="passwordHelp" class="form-text">{{ $message }}</div>
                        @enderror
@@ -117,6 +124,30 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('template/assets/js/main.js') }}"></script>
+
+<script>
+    const togglePassword = document.querySelector(".toggle-password");
+    const mataTutup = document.querySelector("#mata-tutup");
+
+    togglePassword.addEventListener("click", function (e) {
+        var input = document.querySelector("#password");
+
+        if (input.type === "password") {
+            input.type = "text";
+            mataTutup.classList.remove("d-none");
+            mataTutup.classList.add("d-block");
+            togglePassword.querySelector("#toggle-password").classList.remove("bi-eye");
+            // togglePassword.querySelector("#toggle-password").classList.add("bi-eye-slash");
+        } else {
+            input.type = "password";
+            mataTutup.classList.remove("d-block");
+            mataTutup.classList.add("d-none");
+            togglePassword.querySelector("#toggle-password").classList.remove("bi-eye-slash");
+            togglePassword.querySelector("#toggle-password").classList.add("bi-eye");
+        }
+    });
+</script>
+
 
 </body>
 
