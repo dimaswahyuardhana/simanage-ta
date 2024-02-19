@@ -58,14 +58,14 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Create an Account as Employee</h5>
-                    <p class="text-center small">Enter your personal details to create account</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Daftar Akun Karyawan</h5>
+                    <p class="text-center small">Masukkan detail pribadi anda untuk membuat akun</p>
                   </div>
 
                   <form class="row g-3 needs-validation" action='/register/Employee' method="post">
                     @csrf
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">EMAIL</label>
+                      <label for="yourEmail" class="form-label">Email</label>
                       <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror"  id="email" required>
                       @error('email')
                         <div id="emailHelp" class="form-text">{{ $message }}</div>
@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="yourUsername" class="form-label">Name</label>
+                        <label for="yourUsername" class="form-label">Nama</label>
                         <input type="text" name="name"  class="form-control @error('name') is-invalid @enderror" id="name" required>
                         @error('name')
                             <div id="nameHelp" class="form-text">{{ $message }}</div>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Company Code</label>
+                      <label for="yourUsername" class="form-label">Kode Usaha</label>
                       <input type="password" name="id_company" class="form-control @error('name') is-invalid @enderror" id="id_company" required>
                       <div class="d-flex justify-content-end">
                           <div class="field-icon toggle-code" style="margin-top: -2rem; margin-right: 5px">
@@ -109,10 +109,10 @@
                   </div>
 
                     <div class="col-12">
-                      <button class="btn btn-primary w-100 mt-3" type="submit">Create Account</button>
+                      <button class="btn btn-primary w-100 mt-3" type="submit">Buat Akun</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="{{ url('/login') }}">Log in</a></p>
+                      <p class="small mb-0">Sudah memiliki akun? <a href="{{ url('/login') }}">Log in</a></p>
                     </div>
                   </form>
 

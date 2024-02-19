@@ -60,8 +60,8 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Login</h5>
+                    <p class="text-center small">Masukkan Email dan Password Anda</p>
                   </div>
 
                   <form action="{{ route('login') }}" method="POST"  class="row g-3 needs-validation" >
@@ -93,7 +93,7 @@
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Don't have account? Create an account <a href="{{ url('/register/admin') }}"> Admin</a> or <a href="{{ url('/register/Employee') }}"> Employee</a></p>
+                      <p class="small mb-0">Tidak punya akun? Buat akun <a href="{{ url('/register/admin') }}"> Admin</a> or <a href="{{ url('/register/Employee') }}"> Karyawan</a></p>
                     </div>
                   </form>
 

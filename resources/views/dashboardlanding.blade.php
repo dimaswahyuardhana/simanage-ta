@@ -3,7 +3,7 @@
 <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
       <img src="{{ asset('page/assets/img/hero-carousel/hero-carousel-3.jpg') }}" class="img-fluid animated">
-      <h2>Welcome to <span>SiManage</span></h2>
+      <h2>Selamat Datang Di <span>SiManage</span></h2>
       <p>Mudahkan Administrasi Usahamu hanya di SiManage</p>
     </div>
   </section>

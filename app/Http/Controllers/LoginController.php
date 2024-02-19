@@ -31,7 +31,8 @@ class LoginController extends Controller
     public function registrasiAdmin(Request $request)
     {
         $id_role = 1;
-        $idCompany =$request->input('company_name').'-'. Str::random(10);
+        $company_name = $request->input('company_name');
+        $idCompany = strtolower(str_replace(' ', '', $company_name)) . '-' . Str::random(10);
         $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'max:100', 'email', 'unique:users,email'],
